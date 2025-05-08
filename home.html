@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meeting Titles Homepage</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      padding: 20px;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+    .meeting-box {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      text-align: center;
+      position: relative;
+      transition: box-shadow 0.5s ease-in-out;
+    }
+    .meeting-box:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .meeting-actions {
+      display: none;
+      margin-top: 10px;
+    }
+    .meeting-box:hover .meeting-actions {
+      display: block;
+    }
+    .meeting-actions button {
+      margin: 5px 5px 0 0;
+      padding: 6px 12px;
+      font-size: 12px;
+      background-color: #00d084;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .meeting-actions a {
+      text-decoration: none;
+    }
+    .add-meeting-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button class="add-meeting-button">Add New Meeting</button>
+  <h2>Meeting Titles</h2>
+  <div class="grid-container">
+    <div class="meeting-box">
+      <div>Project Kickoff</div>
+      <div class="meeting-actions">
+        <a href="edit.html"><button>Edit</button></a>
+        <button>Delete</button>
+        <a href="view.html"><button>View</button></a>
+      </div>
+    </div>
+    <div class="meeting-box">
+      <div>Design Review</div>
+      <div class="meeting-actions">
+        <a href="edit.html"><button>Edit</button></a>
+        <button>Delete</button>
+        <a href="view.html"><button>View</button></a>
+      </div>
+    </div>
+    <div class="meeting-box">
+      <div>Sprint Planning</div>
+      <div class="meeting-actions">
+        <a href="edit.html"><button>Edit</button></a>
+        <button>Delete</button>
+        <a href="view.html"><button>View</button></a>
+      </div>
+    </div>
+    <div class="meeting-box">
+      <div>Team Retrospective</div>
+      <div class="meeting-actions">
+        <a href="edit.html"><button>Edit</button></a>
+        <button>Delete</button>
+        <a href="view.html"><button>View</button></a>
+      </div>
+    </div>
+    <div class="meeting-box">
+      <div>Client Feedback</div>
+      <div class="meeting-actions">
+        <a href="edit.html"><button>Edit</button></a>
+        <button>Delete</button>
+        <a href="view.html"><button>View</button></a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
