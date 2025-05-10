@@ -231,9 +231,18 @@ input:focus{
     padding-left:100px;
     color:white;
 }
-.inactive{
+.inactive {
     display: none;
 }
-.active{
-    display:flex;
+
+.active {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+    padding-left: 105px;
+    padding-top: 150px;
+    padding-right: 110px;
+    padding-bottom: 125px;
 }
+
