@@ -1,107 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>View Meeting</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>View Meeting Details</title>
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
+      background: linear-gradient(90deg, #1fc488, #185d55);
+      color: #fff;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background-color: #092945;
+      border-radius: 30px;
       padding: 40px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: rgba(0, 0, 0, 0.6) 0px 22px 70px 4px;
     }
     h2 {
       text-align: center;
       margin-bottom: 30px;
     }
-    .meeting-details {
-      background: #fff;
-      padding: 30px;
-      border-radius: 8px;
-      max-width: 800px;
-      margin: 0 auto;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-    .detail-item {
+    .info {
       margin-bottom: 20px;
     }
-    .detail-item label {
-      font-weight: bold;
+    .info label {
       display: block;
-      margin-bottom: 5px;
+      font-weight: bold;
+      color: #28DD9B;
     }
-    .detail-item p {
-      margin: 0;
-      padding-left: 10px;
-      color: #333;
+    .info p {
+      margin: 5px 0 15px 0;
+      border-bottom: 1px solid #2F4B64;
+      padding-bottom: 5px;
     }
-    button {
-      margin-top: 30px;
-      background-color: #007bff;
-      color: white;
+    .back-button {
+      display: block;
+      margin: 30px auto 0;
       padding: 10px 20px;
+      background-color: #42586C;
+      color: white;
       border: none;
-      border-radius: 4px;
+      border-radius: 999px;
+      font-size: 16px;
       cursor: pointer;
+      transition: background-color 0.3s;
+      text-align: center;
     }
-    button:hover {
-      background-color: #0056b3;
+    .back-button:hover {
+      background-color: #28DD9B;
     }
   </style>
 </head>
 <body>
-  <h2>Meeting Details</h2>
-  <div class="meeting-details">
-    <div class="detail-item">
+  <div class="container">
+    <h2>Meeting Details</h2>
+    <div class="info">
       <label>Date:</label>
-      <p></p>
-    </div>
-    <div class="detail-item">
-      <label>Start Time:</label>
-      <p></p>
-    </div>
-    <div class="detail-item">
-      <label>End Time:</label>
-      <p></p>
-    </div>
-    <div class="detail-item">
+      <p>2025-05-07</p>
+      <label>Time:</label>
+      <p>10:00 AM - 11:00 AM</p>
       <label>Location:</label>
-      <p></p>
-    </div>
-    <div class="detail-item">
+      <p>Conference Room B</p>
       <label>Agenda:</label>
-      <p></p>
-    </div>
-    <div class="detail-item">
+      <p>Discuss product roadmap and assign tasks</p>
       <label>Topics Discussed:</label>
-      <p></p>
-    </div>
-    <div class="detail-item">
-      <label>Written By:</label>
-      <p></p>
-    </div>
-    <div class="detail-item">
-      <label>Host(s):</label>
-      <p></p>
-    </div>
-    <div class="detail-item">
-      <label>Co-Host(s):</label>
-      <p></p>
-    </div>
-    <div class="detail-item">
+      <p>UI/UX enhancements, Sprint schedule, Client feedback</p>
+      <label>Written by:</label>
+      <p>Jane Doe</p>
+      <label>Host:</label>
+      <p>John Smith</p>
+      <label>Co-Hosts:</label>
+      <p>Alice Johnson, Bob Lee</p>
       <label>Guests:</label>
-      <p></p>
-    </div>
-    <div class="detail-item">
+      <p>Client A, Client B</p>
       <label>Total Attendees:</label>
-      <p></p>
-    </div>
-    <div class="detail-item">
+      <p>15</p>
       <label>Category (Team):</label>
-      <p></p>
+      <p>Development</p>
     </div>
-    <a href ="home.html"><button type = "submit">Back</button></a>
+    <a href="home.html"><button class="back-button">Back to Homepage</button></a>
   </div>
-  
 </body>
 </html>
