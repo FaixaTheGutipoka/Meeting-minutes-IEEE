@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Meeting Details</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(90deg, #1fc488, #185d55);
+      color: #fff;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background-color: #092945;
+      border-radius: 30px;
+      padding: 40px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: rgba(0, 0, 0, 0.6) 0px 22px 70px 4px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      color: #28DD9B;
+      margin-bottom: 5px;
+    }
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-bottom: 2px solid #2F4B64;
+      background-color: transparent;
+      color: #28DD9B;
+      font-size: 16px;
+    }
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-bottom: 2px solid white;
+    }
+    .buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .save-button,
+    .cancel-button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 999px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0 10px;
+      transition: background-color 0.3s ease;
+    }
+    .save-button {
+      background-color: #28DD9B;
+      color: #092945;
+    }
+    .save-button:hover {
+      background-color: #42586C;
+      color: white;
+    }
+    .cancel-button {
+      background-color: #42586C;
+      color: white;
+      text-decoration: none;
+      line-height: 38px;
+    }
+    .cancel-button:hover {
+      background-color: #28DD9B;
+      color: #092945;
+    }
+    .time{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .admins{
+      display: flex;
+      flex-direction: column;
+    }
+    .people{
+      display: flex;
+      justify-content: space-between;
+    }
+    #agenda{
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Edit Meeting Details</h2>
+    <form id="editForm">
+
+      <div class="time">
+        <div class="form-group">
+        <label>Date</label>
+        <input type="date" id="date" />
+        </div>
+
+        <div class="form-group">
+        <label>Start Time</label>
+        <input type="time" id="startTime" />
+      </div>
+      <div class="form-group">
+        <label>End Time</label>
+        <input type="time" id="endTime" />
+      </div>
+      </div>
+       <div class="form-group">
+        <label>Category (Team)</label>
+        <input type="text" id="category" />
+      </div>
+      
+      <div class="people">
+        <div class="admins">
+          <div class="form-group">
+            <label>Host</label>
+            <input type="text" id="host" />
+         </div>
+        <div class="form-group">
+          <label>Co-Hosts</label>
+          <input type="text" id="coHosts" />
+        </div>
+      </div>
+<div class="participants">
+  <div class="form-group">
+        <label>Participants</label>
+        <input type="text" id="guests" />
+      </div>
+      <!-- <button class="save-button">Attendence</button> -->
+</div>
+      
+      </div>
+      <div class="form-group">
+        <label>Total Attendees</label>
+        <input type="number" id="attendees" />
+      </div>
+      <div class="form-group">
+        <label>Location</label>
+        <input type="text" id="location" />
+      </div>
+      
+      <div class="form-group">
+        <label>Written by</label>
+        <input type="text" id="writtenBy" />
+      </div>
+      <div class="form-group">
+        <label>Agenda</label>
+        <textarea rows="1" id="agenda"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Topics Discussed</label>
+        <textarea rows="30" id="topics">
+          
+        </textarea>
+      </div>
+      <div class="buttons">
+        <button type="submit" class="save-button">Save</button>
+        <a href="home.html" class="cancel-button">Cancel</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Load meeting data from localStorage
+    const meeting = JSON.parse(localStorage.getItem('selectedMeeting'));
+    if (meeting) {
+      document.getElementById('date').value = meeting.date || '';
+      document.getElementById('startTime').value = meeting.startTime || '';
+      document.getElementById('endTime').value = meeting.endTime || '';
+      document.getElementById('location').value = meeting.location || '';
+      document.getElementById('agenda').value = meeting.agenda || '';
+      document.getElementById('topics').value = meeting.topics || '';
+      document.getElementById('writtenBy').value = meeting.writtenBy || '';
+      document.getElementById('host').value = meeting.host || '';
+      document.getElementById('coHosts').value = meeting.coHosts || '';
+      document.getElementById('guests').value = meeting.guests || '';
+      document.getElementById('attendees').value = meeting.attendees || '';
+      document.getElementById('category').value = meeting.category || '';
+    }
+
+    // Save updated data
+    document.getElementById('editForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const updatedMeeting = {
+        date: document.getElementById('date').value,
+        startTime: document.getElementById('startTime').value,
+        endTime: document.getElementById('endTime').value,
+        location: document.getElementById('location').value,
+        agenda: document.getElementById('agenda').value,
+        topics: document.getElementById('topics').value,
+        writtenBy: document.getElementById('writtenBy').value,
+        host: document.getElementById('host').value,
+        coHosts: document.getElementById('coHosts').value,
+        guests: document.getElementById('guests').value,
+        attendees: document.getElementById('attendees').value,
+        category: document.getElementById('category').value,
+      };
+      localStorage.setItem('selectedMeeting', JSON.stringify(updatedMeeting));
+      window.location.href = 'view.html';
+    });
+  </script>
+</body>
+</html>

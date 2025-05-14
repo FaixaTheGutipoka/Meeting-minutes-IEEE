@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>View Meeting Details</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(90deg, #1fc488, #185d55);
+      color: #fff;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background-color: #092945;
+      border-radius: 30px;
+      padding: 40px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: rgba(0, 0, 0, 0.6) 0px 22px 70px 4px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #28DD9B;
+    }
+    .detail {
+      margin-bottom: 15px;
+    }
+    .label {
+      font-weight: bold;
+      color: #28DD9B;
+    }
+    .value {
+      margin-left: 10px;
+    }
+    .back-button {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      background-color: #28DD9B;
+      color: #092945;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 999px;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .back-button:hover {
+      background-color: #42586C;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Meeting Details</h2>
+    <div class="detail"><span class="label">Title:</span><span class="value" id="title"></span></div>
+    <div class="detail"><span class="label">Date:</span><span class="value" id="date"></span></div>
+    <div class="detail"><span class="label">Start Time:</span><span class="value" id="startTime"></span></div>
+    <div class="detail"><span class="label">End Time:</span><span class="value" id="endTime"></span></div>
+    <div class="detail"><span class="label">Location:</span><span class="value" id="location"></span></div>
+    <!-- <div class="detail"><span class="label">Agenda:</span><span class="value" id="agenda"></span></div> -->
+    <div class="detail"><span class="label">Topics Discussed:</span><span class="value" id="topics"></span></div>
+    <div class="detail"><span class="label">Written By:</span><span class="value" id="writtenBy"></span></div>
+    <div class="detail"><span class="label">Host:</span><span class="value" id="host"></span></div>
+    <div class="detail"><span class="label">Co-Hosts:</span><span class="value" id="coHosts"></span></div>
+    <div class="detail"><span class="label">Guests:</span><span class="value" id="guests"></span></div>
+    <div class="detail"><span class="label">Total Attendees:</span><span class="value" id="attendees"></span></div>
+    <div class="detail"><span class="label">Category:</span><span class="value" id="category"></span></div>
+    <a href="home.html" class="back-button">Back to Homepage</a>
+  </div>
+
+  <script>
+    const meeting = JSON.parse(localStorage.getItem('selectedMeeting'));
+    if (meeting) {
+      document.getElementById('title').textContent = meeting.agenda || 'N/A';
+      document.getElementById('date').textContent = meeting.date || 'N/A';
+      document.getElementById('startTime').textContent = meeting.startTime || 'N/A';
+      document.getElementById('endTime').textContent = meeting.endTime || 'N/A';
+      document.getElementById('location').textContent = meeting.location || 'N/A';
+      // document.getElementById('agenda').textContent = meeting.agenda || 'N/A';
+      document.getElementById('topics').textContent = meeting.topics || 'N/A';
+      document.getElementById('writtenBy').textContent = meeting.writtenBy || 'N/A';
+      document.getElementById('host').textContent = meeting.host || 'N/A';
+      document.getElementById('coHosts').textContent = meeting.coHosts || 'N/A';
+      document.getElementById('guests').textContent = meeting.guests || 'N/A';
+      document.getElementById('attendees').textContent = meeting.attendees || 'N/A';
+      document.getElementById('category').textContent = meeting.category || 'N/A';
+    }
+  </script>
+</body>
+</html>
