@@ -8,8 +8,8 @@ body {
     z-index: 99;
 }
 .top-left {
-    top: 120px;
-    left: 80px;
+    top: 12vh;
+    left: 6vw;
 }
 .corner-icon:hover{
 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -37,12 +37,48 @@ body{
     display: flex;
     flex-wrap: wrap;
     
-    overflow: hidden;
+    /* overflow: hidden; */
     border-radius:30px;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    position: relative;
     /* border: 2px solid white; */
 
 }
+
+.main:after {
+    content: ' ';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -5;
+    padding: 10px;
+    border-radius: 15px;
+    --angle:0deg;
+    background-image: conic-gradient(from var(--angle),transparent 80%,#00ff99);
+    animation: 8s spin linear infinite;
+}
+
+.main:before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+@property --angle{
+    syntax:"<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes spin{
+  from{
+    --angle: 0deg;
+  }
+  to{
+    --angle: 360deg;
+  }
+}
+
 .main-left{
     display:flex;
     justify-content: center;
@@ -86,6 +122,8 @@ body{
     position: relative;
     background-color: #092945;
     display: flex;
+    justify-content:center;
+    align-items: center;
     overflow: hidden;
     
 }
